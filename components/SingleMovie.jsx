@@ -1,12 +1,16 @@
 import { getDictionary } from "@/app/[lang]/disctionaries";
 import { getDataById } from "@/lib/data";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export default async function SingleMovie({ movieId, lang }) {
   // console.log('from single',lang);
   const dictionary = await getDictionary(lang);
   // console.log(dictionary);
   const movie = getDataById(movieId);
+  if(!movie.title){
+    notFound()
+  }
   console.log('from single',movieId);
   const {
     backdrop_path,
