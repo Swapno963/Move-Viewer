@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
             <SideBar />
             {children}
           </div>
+          <div id="modal-root-content"></div>
         </main>
 
         <Footer />

@@ -5,8 +5,9 @@ import Image from "next/image";
 export default async function SingleMovie({ movieId, lang }) {
   // console.log('from single',lang);
   const dictionary = await getDictionary(lang);
-  console.log(dictionary);
+  // console.log(dictionary);
   const movie = getDataById(movieId);
+  console.log('from single',movieId);
   const {
     backdrop_path,
     poster_path,
@@ -38,16 +39,16 @@ export default async function SingleMovie({ movieId, lang }) {
           <p class="my-2 text-slate-400 italic">{overview}</p>
           <ul class="text-slate-300 space-y-2 my-8">
             <li>
-              {dictionary.ReleaseDate} : {release_date}
+              {dictionary?.ReleaseDate} : {release_date}
             </li>
             <li>
-              {dictionary.AverageVote}: {vote_average}
+              {dictionary?.AverageVote}: {vote_average}
             </li>
             <li>
-              {dictionary.VoteCount} : {vote_count}
+              {dictionary?.VoteCount} : {vote_count}
             </li>
             <li>
-              {dictionary.Popularity} : {popularity}
+              {dictionary?.Popularity} : {popularity}
             </li>
           </ul>
         </div>
