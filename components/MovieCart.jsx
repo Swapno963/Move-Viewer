@@ -1,7 +1,10 @@
+import { getDictionary } from "@/app/[lang]/disctionaries";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function MovieCart({movie}) {
+export default async function  MovieCart({movie,lang}) {
+  const dictionary = await getDictionary(lang);
+
   const {title, id,poster_path} = movie;
   return (
     <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
@@ -19,7 +22,7 @@ export default function MovieCart({movie}) {
                 <Link className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
                   href={`movies/${id}`}>
                     <img src="/assets/tag.svg" alt=""/>
-                    <span>Details</span>
+                    <span>{dictionary.Detail}</span>
                 </Link>
             </figcaption>
     </figure>

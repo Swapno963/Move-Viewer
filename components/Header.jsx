@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header>
 		<nav className="container flex items-center justify-between space-x-10 py-6">
-			<Link href="#">
+			<Link href="/">
 				<Image src="/assets/logo.svg" width={139} height={26} alt="logo"/>
 			</Link>
 

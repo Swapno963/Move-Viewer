@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-export default function SideBar() {
+export default function SideBar({lang}) {
+    console.log('from sidebar :',lang);
   return (
     <aside>
     <ul className="space-y-2">
