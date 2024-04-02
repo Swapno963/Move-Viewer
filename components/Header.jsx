@@ -25,7 +25,7 @@ export default function Header() {
       // detail page
       const newPathname = pathName.replace(/^\/[a-z]{2}\//, getOpositLanguage(Lang));
 	  console.log(newPathname);
-      router.push(newPathname);
+    //   router.push(newPathname);
 		e.preventDefault()
 	//   window.location.reload();
     } else {
