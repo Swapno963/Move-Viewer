@@ -1,3 +1,4 @@
+import { getSingleMovieDictionary } from "@/app/Data/DataDictonary";
 import { getDictionary } from "@/app/[lang]/disctionaries";
 import { getDataById } from "@/lib/data";
 import Image from "next/image";
@@ -5,13 +6,16 @@ import { notFound } from "next/navigation";
 
 export default async function SingleMovie({ movieId, lang }) {
   // console.log('from single',lang);
+
+  
   const dictionary = await getDictionary(lang);
-  // console.log(dictionary);
-  const movie = getDataById(movieId);
-  if(!movie.title){
+  const SingleMovie = await getSingleMovieDictionary(movieId);
+  // console.log('SingleMovie',SingleMovie);
+  // const movie = getDataById(movieId);
+  if(!SingleMovie.title){
     notFound()
   }
-  console.log('from single',movieId);
+  // console.log('from single',movieId);
   const {
     backdrop_path,
     poster_path,
@@ -21,7 +25,7 @@ export default async function SingleMovie({ movieId, lang }) {
     vote_average,
     vote_count,
     popularity,
-  } = movie;
+  } = SingleMovie;
   return (
     <section>
       <div>
